@@ -27,7 +27,7 @@ print(y_)
 
 # 交差エントロピー
 # cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_ * tf.log(y), reduction_indices=[1]))
-# cross_entropy = tf.losses.sparse_softmax_cross_entropy(labels=y_, logits=y)
+# cross_entropy = tf.losses.sparse_softmax_cross_entropy(labels=y_, logits=y) #何故か動かない
 cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=y_, logits=y))
 # 勾配降下アルゴリズムを使って学習率0.5でcross_entropyを最小化
 train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
